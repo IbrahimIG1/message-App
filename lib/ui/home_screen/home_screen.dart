@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:messeges_app/core/models/user_model.dart';
+import 'package:messeges_app/core/network/services/services.dart';
 import 'package:messeges_app/core/widgets_app/text_field_app.dart';
-import 'package:messeges_app/ui/home_screen/cubit/home_cubit.dart';
-import 'package:messeges_app/ui/home_screen/cubit/home_state_cubit.dart';
+import 'package:messeges_app/ui/home_screen/widgets/chats_list.dart';
 import 'package:messeges_app/ui/home_screen/widgets/story_section.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,6 +10,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, dynamic> json = {
+    'name':'ibrahim',
+      'email':'ibrahim1@gmail.com',
+      'password':'password',
+      'icon':Icon(Icons.person),
+  };
+    Services.userModel= UserModel.fromJson(json);
     return Scaffold(
       appBar: AppBar(title: Text("Chats"), centerTitle: true, actions: [
         Icon(Icons.roller_shades_outlined),
@@ -21,7 +27,12 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             AppTextField(text: "search", icon: Icon(Icons.search)),
-            StorySection(),
+            GestureDetector(
+                onTap: () {
+                  Services.signUp();
+                },
+                child: StorySection()),
+            ChatsList(),
             /* 
            BlocProvider(
               create: (context) => HomeCubit(),
@@ -43,4 +54,4 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-} 
+}

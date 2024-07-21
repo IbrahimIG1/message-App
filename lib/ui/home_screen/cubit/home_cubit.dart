@@ -12,7 +12,7 @@ class HomeCubit extends Cubit<HomeStateCubit> {
     "last": "algammal",
     "born": 2003
   };
-  saveData() async {
+  void saveData() async {
     try {
       await dp.collection("users").add(user).then((value) {
         print('save user data done');

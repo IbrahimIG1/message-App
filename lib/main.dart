@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:messeges_app/core/network/services/services.dart';
+import 'package:messeges_app/services/firebase_services.dart/firebase.dart';
 import 'package:messeges_app/ui/home_screen/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding();
-  await Services.initialFirebase();
+  await ServicesFirebase.initialFirebase();
 
   runApp(const MyApp());
 }

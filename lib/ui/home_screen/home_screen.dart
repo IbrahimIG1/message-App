@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:messeges_app/core/models/user_model.dart';
-import 'package:messeges_app/core/network/services/services.dart';
+import 'package:messeges_app/services/firebase_services.dart/firebase.dart';
 import 'package:messeges_app/core/widgets_app/text_field_app.dart';
 import 'package:messeges_app/ui/home_screen/widgets/chats_list.dart';
 import 'package:messeges_app/ui/home_screen/widgets/story_section.dart';
@@ -11,12 +11,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Map<String, dynamic> json = {
-    'name':'ibrahim',
-      'email':'ibrahim1@gmail.com',
-      'password':'password',
-      'icon':Icon(Icons.person),
-  };
-    Services.userModel= UserModel.fromJson(json);
+      'name': 'ibrahim',
+      'email': 'ibrahim1@gmail.com',
+      'password': 'password',
+      'icon': Icon(Icons.person),
+    };
+    ServicesFirebase.userModel = UserModel.fromJson(json);
     return Scaffold(
       appBar: AppBar(title: Text("Chats"), centerTitle: true, actions: [
         Icon(Icons.roller_shades_outlined),
@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             AppTextField(text: "search", icon: Icon(Icons.search)),
             GestureDetector(
                 onTap: () {
-                  Services.signUp();
+                  ServicesFirebase.signUp();
                 },
                 child: StorySection()),
             ChatsList(),

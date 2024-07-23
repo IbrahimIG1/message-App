@@ -1,11 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:messeges_app/core/models/user_model.dart';
-import 'package:messeges_app/core/network/firebase/login.dart';
-import 'package:messeges_app/core/network/firebase/save_data_on_server.dart';
-import 'package:messeges_app/core/network/firebase/sign_up.dart';
+import 'package:messeges_app/core/data_management/firebase/auth/login.dart';
+import 'package:messeges_app/core/data_management/firebase/auth/sign_up.dart';
 import 'package:messeges_app/firebase_options.dart';
 
-class Services {
+class ServicesFirebase {
   static UserModel? userModel;
 
   // start firebase service in application

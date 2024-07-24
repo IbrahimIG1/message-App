@@ -1,12 +1,20 @@
-import 'package:messeges_app/core/data_management/shared_prefrence/get_data.dart';
-import 'package:messeges_app/core/data_management/shared_prefrence/set_data.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefrenceServices {
-  static void setData({required String key, required value}) {
-    SharedPrefSetData.setData(key: key, value: value);
+  static late SharedPreferences sharedPreferences;
+  static Future<void> init() async {
+    print('initial shared prefrence');
+    
+    sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  static void getData({required String key}) {
-    SharedPrefGetData.getData(key: key);
+  static void setData({required String key, required value}) {
+    print('setData in shared prefrence key : $key , value : $value');
+
+    sharedPreferences.setString(key, value);
+  }
+
+  static Object? getData({required String key}) {
+    return sharedPreferences.get(key) ?? "";
   }
 }

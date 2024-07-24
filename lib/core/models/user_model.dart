@@ -7,28 +7,13 @@ class UserModel {
   Icon? icon;
 
   // private constructor
-  UserModel._({
-    required this.name,
-    required this.email,
-    required this.password,
-    required this.icon,
-  });
-  static UserModel? _instance;
+  UserModel(this.name, this.email, this.password, this.icon);
 
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    if (_instance == null) {
-      print('>>>>>>>>>>>>>>>>>>>>>_instance after init =  is null ');
-    } else {
-      print('>>>>>>>>>>>>>>>>>>>>>_instance after init = ${_instance!.name}');
-    }
-    _instance ??= UserModel._(
-        name: json['name'],
-        email: json['email'],
-        password: json['password'],
-        icon: json['icon']);
-    print('>>>>>>>>>>>>>>>>>>>>>_instance before init = ${_instance!.name}');
-
-    return _instance!;
+  UserModel.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    email = json['email'];
+    password = json['password'];
+    icon = json['icon'];
   }
   Map<String, dynamic> toJson() {
     return {

@@ -13,4 +13,9 @@ class TextStyles {
       fontSize: 20.sp,
       color: Colors.black,
       fontWeight: FontWeightHelper.regular);
+      // White
+  static TextStyle font20WhiteNormal = TextStyle(
+      fontSize: 20.sp,
+      color: Colors.white,
+      fontWeight: FontWeightHelper.regular);
 }

@@ -46,6 +46,8 @@ dependencies:
   flutter_screenutil: ^5.9.3
   # plugin for reading and writing simple key-value pairs
   shared_preferences: ^2.2.3
+  # implementation and to access the concrete implementation from everywhere in your App
+  get_it: ^7.7.0
 
 dev_dependencies:
   flutter_test:
